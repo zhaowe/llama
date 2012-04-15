@@ -1,0 +1,13 @@
+#! /usr/bin/perl
+use strict;
+use 5.010;
+greet('Fred');
+greet('Barney');
+sub greet{
+    # This subroutine welcomes the person you name by telling them the name
+    # of the last person it greet.
+    state $last_person;
+    if(defined($last_person)){say "Hi @_[0]! $last_person is also here!\n"}
+    else{say "Hi @_[0]! You are the first one here.\n"}
+    $last_person=@_[0];
+}

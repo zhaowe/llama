@@ -1,0 +1,29 @@
+#! /usr/bin/perl
+use strict;
+sub total{
+    # returns the total of a list of numbers.
+    my $number;
+    foreach (@_){
+	$number+=$_;
+    }
+    $number;
+}
+sub above_average{
+    # This subroutine takes a list of numbers and returns the ones which
+    # are above the average.
+    if(@_==0){return}
+    my $average=&total(@_)/@_;
+    my @above_average;
+    foreach(@_){
+	if($_>$average){push @above_average,$_}
+    }
+    @above_average;
+}
+my @fred = above_average(1..10);
+print "\@fred is @fred.\n";
+print "(Should be 6 7 8 9 10)\n";
+my @barney = above_average(100,1..10);
+print "\@barney is @barney.\n";
+print "(Should be just 100)\n";
+my @fred = above_average();
+print "\@fred is @fred.\n";

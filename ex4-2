@@ -1,0 +1,12 @@
+#! /usr/bin/perl
+use strict;
+sub total{
+    # returns the total of a list of numbers.
+    my $number;
+    foreach (@_){
+	$number+=$_;
+    }
+    $number;
+}
+my $total=total(1..1000);
+print "The sum of the numbers from 1 to 1,000 is $total.\n";
