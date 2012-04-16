@@ -1,0 +1,7 @@
+#! /usr/bin/perl
+# This program acts like cat, but reverse the order of the output
+# lines.
+use autodie;
+use warnings;
+while(<>){ push @lines,$_; }
+print reverse @lines;
