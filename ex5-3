@@ -1,0 +1,15 @@
+#! /usr/bin/perl
+# This program asks the user to enter a list of strings on separate lines,
+# printing each string in a right-justified, 20-character column.
+use autodie;
+use warnings;
+print "Enter a list of strings on separate lines: \n";
+@list=<STDIN>;
+chomp(@list);
+# Let theuser choose the column width.
+# print a "ruler line" of digits as well.
+print "Enter the column width: ";
+$column_width = <STDIN>;
+chomp($column_width);
+$format = "1234567890" x 7 . "\n".("%${column_width}s\n"x@list);
+printf $format,@list;
