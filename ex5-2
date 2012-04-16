@@ -1,4 +1,11 @@
 #! /usr/bin/perl
+# This program asks the user to enter a list of strings on separate lines,
+# printing each string in a right-justified, 20-character column.
 use autodie;
 use warnings;
-# TODO: add codes.
+print "Enter a list of strings on separate lines: \n";
+@list=<STDIN>;
+# To be certain that the output is in the proper columns,
+# print a "ruler line" of digits as well.
+print "1234567890" x 2 . "\n";
+foreach(@list){printf "%21s",$_}
